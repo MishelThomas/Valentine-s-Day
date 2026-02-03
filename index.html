@@ -1,59 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Valentine for You 💌</title>
+  <title>Will you be my Valentine? 💖</title>
+
   <style>
     body {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
       text-align: center;
-      padding: 40px;
-      color: #333;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 20px;
+
+    .emoji {
+      font-size: 50px;
+      margin-bottom: 10px;
     }
-    .instagram-reel {
-      margin: 20px auto;
-      max-width: 400px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+
+    h2 {
+      margin: 15px 0 30px;
+      font-weight: 600;
     }
-    .valentine-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 1.3rem;
-      color: white;
-      background: #e91e63;
+
+    .buttons {
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
       border: none;
-      border-radius: 30px;
-      text-decoration: none;
+      border-radius: 25px;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
-    .valentine-btn:hover {
-      background: #d81b60;
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      position: absolute;
+      background: #ddd;
+      color: #333;
+      left: 180px;
+      top: 0;
+    }
+
+    .hint {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #888;
     }
   </style>
 </head>
+
 <body>
+  <div class="card">
+    <div class="emoji">🐻❤️</div>
+    <h2>Nirali, will you be my Valentine?</h2>
 
-  <h1>Hey ❤️</h1>
-  <p>I saw this reel and thought of you...</p>
+    <div class="buttons">
+      <button id="yes">Yes 💘</button>
+      <button id="no">No</button>
+    </div>
 
-  <div class="instagram-reel">
-    <!-- Instagram embed -->
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DULtwWikSTA/" data-instgrm-version="14" style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;"></blockquote>
+    <div class="hint">“No” seems a bit shy 😏</div>
   </div>
 
-  <a class="valentine-btn" href="https://www.instagram.com/reel/DULtwWikSTA/" target="_blank">
-    Will you be my Valentine? 💘
-  </a>
+  <script>
+    const noBtn = document.getElementById("no");
 
-  <script async src="//www.instagram.com/embed.js"></script>
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 60 - 30;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:Poppins,sans-serif;
+          text-align:center;">
+          <h1 style="font-size:3rem;">YAYYYYY 💖🎉</h1>
+          <p style="font-size:1.4rem;">Best Valentine ever 😍</p>
+        </div>
+      `;
+    });
+  </script>
 </body>
 </html>
